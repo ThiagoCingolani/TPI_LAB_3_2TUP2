@@ -32,8 +32,8 @@ const Login = () => {
 
   const loginHandler = (event) => {
     event.preventDefault();
-    
-    if (!emailRef.current.value) {
+
+    if (!emailRef.current.value.includes("@gmail.com") && !emailRef.current.value.includes("@hotmail.com")) {
       emailRef.current.focus();
       setErrors({ ...errors, email: true });
       return;
@@ -70,7 +70,7 @@ const Login = () => {
           </Button>
           {(errors.email || errors.password) && (
             <div className="mt-3 mb-3">
-              <Alert variant="danger">Debe completar todos los campos</Alert>
+              <Alert variant="danger">Complete los campos y/o cumpla los criterios</Alert>
             </div>
           )}
       </Form>
