@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from "prop-types";
 import { Card, Row, Col, Button, InputGroup } from 'react-bootstrap'
 import "./ProductItem.css"
+import { CartContext } from '../../services/cartContext/CartContext';
 
-const ProductItem = ({ id, name, price, category, ingredients, imageUrl }) => {
-
+const ProductItem = ({ name, price, ingredients, imageUrl, addToCart }) => {
 
     return (
         <Card className='card_group'>
@@ -19,9 +19,9 @@ const ProductItem = ({ id, name, price, category, ingredients, imageUrl }) => {
                         <Card.Footer>
                             <h5>${price}</h5>
                             <InputGroup className="input_group">
-                                <Button variant='primary' className="mr-1 rounded-pill"><img src="https://img.icons8.com/?size=100&id=23175&format=png&color=000000" height={25} width={25}/></Button>
+                                <Button variant='primary' className="mr-1 rounded-pill" onClick={addToCart}><img src="https://img.icons8.com/?size=100&id=23175&format=png&color=000000" height={25} width={25}/></Button>
                                 <Button variant='success' className="rounded-pill">Comprar</Button>
-                            </InputGroup>   
+                            </InputGroup>
                         </Card.Footer>
                     </Col>
                 </Row>
@@ -37,6 +37,7 @@ ProductItem.propTypes = {
     category: PropTypes.string,
     ingredients: PropTypes.array,
     imageUrl: PropTypes.string,
+    addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductItem

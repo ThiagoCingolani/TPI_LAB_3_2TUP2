@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from "prop-types";
 import ProductItem from '../productItem/ProductItem'
 import "./Products.css"
+import { CartContext } from '../../services/cartContext/CartContext';
+import { useContext } from 'react';
 
 const Products = ({ foods }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div className='cardsContainer'>
       {foods.map((food) => {
@@ -25,6 +29,7 @@ const Products = ({ foods }) => {
             category={food.category}
             ingredients={formattedIngredients}
             imageUrl={food.imageUrl}
+            addToCart={() => addToCart(food)}
           />
         );
       })}
@@ -34,6 +39,7 @@ const Products = ({ foods }) => {
 
 Products.propTypes = {
   foods: PropTypes.array,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default Products
