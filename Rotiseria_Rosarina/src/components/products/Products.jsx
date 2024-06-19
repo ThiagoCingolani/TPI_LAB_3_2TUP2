@@ -19,6 +19,7 @@ const Products = ({ foods }) => {
         return (
           <ProductItem
             key={food.id}
+            //id={food.id} <<--- ELIMINADO PORQUE TIRA ERROR (PREGUNTAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
             name={food.name}
             price={food.price}
             category={food.category}

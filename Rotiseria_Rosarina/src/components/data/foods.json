@@ -1,0 +1,428 @@
+{
+    "foods":[
+        {
+            "id": 1,
+            "name": "Margarita",
+            "price": 2975,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "albahaca"],
+            "imageUrl": "https://www.paulinacocina.net/wp-content/uploads/2023/09/pizza-margherita-paulina-cocina-recetas-800x450.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Pepperoni",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "pepperoni"],
+            "imageUrl": "https://www.saborusa.com/wp-content/uploads/2019/10/Celebremos-con-una-deliciosa-y-tradicional-pizza-de-pepperoni-Foto-destacada.png"
+        },
+        {
+            "id": 3,
+            "name": "Cuatro Quesos",
+            "price": 3500,
+            "category": "pizza",
+            "ingredients": ["mozzarella", "gorgonzola", "parmesano", "queso de cabra"],
+            "imageUrl": "https://www.comedera.com/wp-content/uploads/2022/04/Pizza-cuatro-quesos-shutterstock_1514858234.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Hawaiana",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón", "piña"],
+            "imageUrl": "https://saborargento.com.ar/wp-content/uploads/2024/04/Receta-de-Pizza-Hawaiana.webp"
+        },
+        {
+            "id": 5,
+            "name": "Vegetariana",
+            "price": 2975,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "pimientos", "cebolla", "aceitunas", "champiñones"],
+            "imageUrl": "https://www.silviocicchi.com/pizzachef/wp-content/uploads/2015/02/v2-300x169.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Caprichosa",
+            "price": 3850,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón", "alcachofas", "champiñones", "aceitunas"],
+            "imageUrl": "https://imag.bonviveur.com/pizza-caprichosa-o-pizza-capricciosa.webp"
+        },
+        {
+            "id": 7,
+            "name": "Barbacoa",
+            "price": 3675,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "carne de res", "cebolla", "salsa barbacoa"],
+            "imageUrl": "https://www.unileverfoodsolutions.es/dam/global-ufs/mcos/SPAIN/calcmenu/recipes/ES-recipes/general/pizza-barbacoa/main-header.jpg/jcr:content/renditions/cq5dam.thumbnail.desktop.jpeg"
+        },
+        {
+            "id": 8,
+            "name": "Marinara",
+            "price": 2800,
+            "category": "pizza",
+            "ingredients": ["tomate", "ajo", "orégano"],
+            "imageUrl": "https://assets.tmecosys.com/image/upload/t_web600x528/img/recipe/ras/Assets/97C2C718-5015-437F-8355-316EE000F57C/Derivates/556409BB-02E0-4BA3-BC16-F409F609FCED.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Napolitana",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "anchoas", "aceitunas"],
+            "imageUrl": "https://assets.elgourmet.com/wp-content/uploads/2023/03/8metlvp345_portada-pizza-1024x686.jpg.webp"
+        },
+        {
+            "id": 10,
+            "name": "Fugazza",
+            "price": 2625,
+            "category": "pizza",
+            "ingredients": ["cebolla", "orégano", "aceitunas", "mozzarella"],
+            "imageUrl": "https://www.thespruceeats.com/thmb/aqibVXuYoOqmwOD4PNTrDwVoG7c=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/fugazza1-56b549cd5f9b5829f82d3106.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Carbonara",
+            "price": 3500,
+            "category": "pizza",
+            "ingredients": ["crema", "mozzarella", "tocino", "cebolla"],
+            "imageUrl": "https://lacocinademasito.com/wp-content/uploads/Pizza-a-la-carbonara-entera.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Diávola",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "salami picante"],
+            "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/d7/e2/cc/pizza-diavola.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Boscaiola",
+            "price": 3500,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "champiñones", "salchicha"],
+            "imageUrl": "https://blog.giallozafferano.it/golosipeccati/wp-content/uploads/2015/11/pizza-boscaiola.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Provolone",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "provolone", "mozzarella", "orégano"],
+            "imageUrl": "https://www.hola.com/imagenes/cocina/recetas/20220919217410/pizzas-queso-provolone-oregano/1-140-46/pizza-provolone-adobe-t.jpg?im=Resize=(1200)"
+        },
+        {
+            "id": 15,
+            "name": "Calabresa",
+            "price": 3675,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "calabresa"],
+            "imageUrl": "https://www.recetas-argentinas.com/base/stock/Recipe/43-image/43-image_web.jpg.webp"
+        },
+        {
+            "id": 16,
+            "name": "Cuatro Estaciones",
+            "price": 4025,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón", "champiñones", "alcachofas", "aceitunas"],
+            "imageUrl": "https://recetinas.com/wp-content/uploads/2022/11/Pizza-cuatro-estaciones.jpg"
+        },
+        {
+            "id": 17,
+            "name": "Pizza Blanca",
+            "price": 2975,
+            "category": "pizza",
+            "ingredients": ["crema", "mozzarella", "ajo", "orégano"],
+            "imageUrl": "https://okdiario.com/img/2017/08/13/istock-1047708386-1-655x368.jpg"
+        },
+        {
+            "id": 18,
+            "name": "Pugliese",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "cebolla"],
+            "imageUrl": "https://i0.wp.com/www.foodstoriestravel.com/uploads/lIBzgnh2/FocacciaPugliesess.jpg?ssl=1"
+        },
+        {
+            "id": 19,
+            "name": "Siciliana",
+            "price": 3500,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "anchoas", "alcaparras", "orégano"],
+            "imageUrl": "https://hacermasapizza.com/img/elaboracion-pizza-siciliana-385.webp"
+        },
+        {
+            "id": 20,
+            "name": "Rústica",
+            "price": 3675,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón serrano", "rúcula", "parmesano"],
+            "imageUrl": "https://cdn.elcocinerocasero.com/imagen/receta/1000/2016-03-04-19-04-16/pizza-rustica.jpeg"
+        },
+        {
+            "id": 21,
+            "name": "Tonno e Cipolla",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "atún", "cebolla"],
+            "imageUrl": "https://www.tasteatlas.com/images/dishes/06fb0374204f4cf1bc636a4deb517976.jpg?mw=1300"
+        },
+        {
+            "id": 22,
+            "name": "Mediterránea",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "aceitunas", "alcaparras", "anchoas"],
+            "imageUrl": "https://img.bekiacocina.com/cocina/0000/247-h.jpg"
+        },
+        {
+            "id": 23,
+            "name": "Prosciutto e Funghi",
+            "price": 3500,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón", "champiñones"],
+            "imageUrl": "https://www.comedera.com/wp-content/uploads/2022/04/Pizza-prosciutto-e-funghi-shutterstock_1685294995.jpg"
+        },
+        {
+            "id": 24,
+            "name": "Zuccini",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "calabacín", "aceitunas", "albahaca"],
+            "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2018/08/IMG_13260-580x789.jpg"
+        },
+        {
+            "id": 25,
+            "name": "Española",
+            "price": 3675,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "chorizo", "pimientos", "aceitunas"],
+            "imageUrl": "https://unareceta.com/wp-content/uploads/2016/08/Pizza-espa%C3%B1ola-640x480.jpg"
+        },
+        {
+            "id": 26,
+            "name": "Frutti di Mare",
+            "price": 4200,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "mariscos", "ajo", "perejil"],
+            "imageUrl": "https://www.recetariosano.com/object?wid=3&id=1660&disposition=inline&width=860&height=380&border=false&opacity="
+        },
+        {
+            "id": 27,
+            "name": "Salchicha y Champiñones",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "salchicha", "champiñones"],
+            "imageUrl": "https://varomeando.com/wp-content/uploads/2021/07/pisal5.jpg"
+        },
+        {
+            "id": 28,
+            "name": "Pollo al Curry",
+            "price": 3675,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "pollo", "curry", "cebolla"],
+            "imageUrl": "https://img-global.cpcdn.com/recipes/a089bafeea13e56e/680x482cq70/pizza-de-pollo-al-curry-rojo-foto-principal.webp"
+        },
+        {
+            "id": 29,
+            "name": "Tropical",
+            "price": 3325,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "jamón", "piña", "maíz"],
+            "imageUrl": "https://totospizza.com.co/wp-content/uploads/2018/03/Tropical.jpg"
+        },
+        {
+            "id": 30,
+            "name": "Picante",
+            "price": 3150,
+            "category": "pizza",
+            "ingredients": ["tomate", "mozzarella", "chorizo", "pimientos picantes"],
+            "imageUrl": "https://www.embotitsdeplanoles.com/wp-content/uploads/2020/09/pizzapicant.jpg"
+        },
+        {
+            "id": 31,
+            "name": "Empanada de Carne",
+            "price": 875,
+            "category": "empanada",
+            "ingredients": ["Carne de res", "Cebolla", "Aceitunas", "Huevo duro", "Comino"],
+            "imageUrl": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.6435-9/117584644_1758890197582140_1015976484708507141_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ce3NHWuBnG8Q7kNvgFXRG7c&_nc_ht=scontent-eze1-1.xx&oh=00_AYDAW-k92tPF_sfy-wg-VKtJNBTWpsxeSGbHWXIEIGMo8g&oe=66972D12"
+        },
+        {
+            "id": 32,
+            "name": "Empanada de Pollo",
+            "price": 805,
+            "category": "empanada",
+            "ingredients": ["Pollo desmenuzado", "Cebolla", "Pimiento", "Ajo", "Cilantro"],
+            "imageUrl": "https://www.laylita.com/recetas/wp-content/uploads/Receta-de-empanadas-de-pollo-o-pavo.jpg"
+        },
+        {
+            "id": 33,
+            "name": "Empanada de Jamón y Queso",
+            "price": 700,
+            "category": "empanada",
+            "ingredients": ["Jamón", "Queso", "Orégano"],
+            "imageUrl": "https://www.clarin.com/img/2021/04/12/WYz8Yr8tB_1256x620__1.jpg"
+        },
+        {
+            "id": 34,
+            "name": "Empanada de Espinaca y Queso",
+            "price": 770,
+            "category": "empanada",
+            "ingredients": ["Espinaca", "Queso", "Cebolla", "Nuez moscada"],
+            "imageUrl": "https://www.clarin.com/img/2023/04/25/Gc7v0hFUU_1256x620__2.jpg#1682440564359"
+        },
+        {
+            "id": 35,
+            "name": "Empanada Caprese",
+            "price": 875,
+            "category": "empanada",
+            "ingredients": ["Tomate", "Mozzarella", "Albahaca"],
+            "imageUrl": "https://media.ambito.com/p/48d644dc5244bb0990c950d3724a2fd9/adjuntos/239/imagenes/041/198/0041198587/655x368/smart/empanada-capresewebp.png"
+        },
+        {
+            "id": 36,
+            "name": "Empanada de Choclo",
+            "price": 735,
+            "category": "empanada",
+            "ingredients": ["Choclo", "Cebolla", "Bechamel", "Queso"],
+            "imageUrl": "https://saborargento.com.ar/wp-content/uploads/2023/06/Receta-de-Empanadas-de-Choclo.webp"
+        },
+        {
+            "id": 37,
+            "name": "Empanada de Atún",
+            "price": 840,
+            "category": "empanada",
+            "ingredients": ["Atún", "Cebolla", "Pimiento", "Aceitunas", "Huevo duro"],
+            "imageUrl": "https://vinomanos.com/wp-content/uploads/2020/04/empanadas-de-vigilia.jpg"
+        },
+        {
+            "id": 38,
+            "name": "Empanada Árabe",
+            "price": 910,
+            "category": "empanada",
+            "ingredients": ["Carne de res", "Limón", "Tomate", "Cebolla", "Perejil"],
+            "imageUrl": "https://img-global.cpcdn.com/recipes/4674aea159d6396b/680x482cq70/empanadas-arabes-foto-principal.webp"
+        },
+        {
+            "id": 39,
+            "name": "Empanada de Humita",
+            "price": 805,
+            "category": "empanada",
+            "ingredients": ["Maíz", "Cebolla", "Pimiento", "Queso", "Bechamel"],
+            "imageUrl": "https://s1.elespanol.com/2023/11/02/cocinillas/recetas/aperitivos-y-entrantes/806679530_237281598_1706x960.jpg"
+        },
+        {
+            "id": 40,
+            "name": "Empanada de Champiñones",
+            "price": 875,
+            "category": "empanada",
+            "ingredients": ["Champiñones", "Cebolla", "Ajo", "Queso"],
+            "imageUrl": "https://editorialtelevisa.brightspotcdn.com/dims4/default/e678d98/2147483647/strip/true/crop/560x560+220+0/resize/1000x1000!/format/webp/quality/90/?url=https%3A%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fwp-content%2Fuploads%2F2019%2F09%2Fempanadas-champinones.jpg"
+        },
+        {
+            "id": 41,
+            "name": "Empanada de Camarones",
+            "price": 1050,
+            "category": "empanada",
+            "ingredients": ["Camarones", "Cebolla", "Ajo", "Pimiento", "Cilantro"],
+            "imageUrl": "https://www.tipicochileno.cl/wp-content/uploads/2021/05/empanada-camaron-queso-1200-628.jpg"
+        },
+        {
+            "id": 42,
+            "name": "Empanada de Queso y Cebolla",
+            "price": 770,
+            "category": "empanada",
+            "ingredients": ["Queso", "Cebolla", "Orégano"],
+            "imageUrl": "https://media.airedesantafe.com.ar/p/a1c115afd861a7d9f0819216edfb5519/adjuntos/268/imagenes/003/789/0003789658/1200x0/smart/imagepng.png"
+        },
+        {
+            "id": 43,
+            "name": "Empanada de Tofu y Verduras",
+            "price": 945,
+            "category": "empanada",
+            "ingredients": ["Tofu", "Zanahoria", "Calabacín", "Salsa de soya", "Cebolla"],
+            "imageUrl": "https://sukaldikas.com/wp-content/uploads/2021/02/Empanada_Tofu_01.jpg"
+        },
+        {
+            "id": 44,
+            "name": "Carlito Clásico",
+            "price": 1050,
+            "category": "carlito",
+            "ingredients": ["jamón", "queso", "manteca"],
+            "imageUrl": "https://media.lacapital.com.ar/p/7ce137d60f10f342bcd2d656c0f39ab5/adjuntos/203/imagenes/026/020/0026020507/642x0/smart/carli123815_87250jpg.jpg"
+        },
+        {
+            "id": 45,
+            "name": "Carlito Completo",
+            "price": 1400,
+            "category": "carlito",
+            "ingredients": ["jamón", "queso", "manteca", "huevo", "tomate"],
+            "imageUrl": "https://republica.superleon.com.ar/wp-content/uploads/2024/03/PRODUCTOS-SUPER-8.jpg"
+        },
+        {
+            "id": 46,
+            "name": "Carlito Especial",
+            "price": 1750,
+            "category": "carlito",
+            "ingredients": ["jamón", "queso", "manteca", "huevo", "tomate", "palta"],
+            "imageUrl": "https://pbs.twimg.com/media/EC7m9JpW4AIG6zD?format=jpg&name=small"
+        },
+        {
+            "id": 47,
+            "name": "Carlito Vegetariano",
+            "price": 1225,
+            "category": "carlito",
+            "ingredients": ["queso", "manteca", "tomate", "lechuga", "zanahoria rallada"],
+            "imageUrl": "https://scontent-eze1-1.xx.fbcdn.net/v/t1.6435-9/31394182_1035057536652041_7550106031632678912_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JPYywG0D4iAQ7kNvgF0IKec&_nc_ht=scontent-eze1-1.xx&oh=00_AYDtqcCrtH2hYk_lloQ91_HA0cGASB-pIUg9Pq0tQI_pJQ&oe=66972BC5"
+        },
+        {
+            "id": 48,
+            "name": "Carlito de Pollo",
+            "price": 1575,
+            "category": "carlito",
+            "ingredients": ["pollo", "queso", "manteca", "tomate"],
+            "imageUrl": "https://cdn.pedix.app/JohCkmWiNdAWwpurKA0H/products/1613746628834.png?size=2000x2000"
+        },
+        {
+            "id": 49,
+            "name": "Carlito Gourmet",
+            "price": 2100,
+            "category": "carlito",
+            "ingredients": ["jamón ibérico", "queso brie", "manteca", "rúcula"],
+            "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/1a/f6/b5/53/carlitos-de-lomo-con.jpg"
+        },
+        {
+            "id": 50,
+            "name": "Carlito Caprese",
+            "price": 1400,
+            "category": "carlito",
+            "ingredients": ["queso", "manteca", "tomate", "albahaca"],
+            "imageUrl": "https://images.cookforyourlife.org/wp-content/uploads/2018/08/Grilled-Cheese-Caprese.jpg"
+        },
+        {
+            "id": 51,
+            "name": "Carlito de Jamón Crudo",
+            "price": 1925,
+            "category": "carlito",
+            "ingredients": ["jamón crudo", "queso", "manteca", "rúcula", "tomate"],
+            "imageUrl": "https://tres56.knu.com.ar/archivos/Productos.aspx?i=36&fm=3062023817&k=1"
+        },
+        {
+            "id": 52,
+            "name": "Carlito de Atún",
+            "price": 1575,
+            "category": "carlito",
+            "ingredients": ["atún", "queso crema", "manteca", "alcaparras"],
+            "imageUrl": "https://www.lanacion.com.ar/resizer/v2/sandwich-de-atun-R2GBTCGKIBASXOLVTWSP5WRVHY.JPG?auth=94a570c2fcc8d181d290e0e99fb16ad064586da2a9fe98cddda2c045ec3dcb24&width=880&height=586&quality=70&smart=true"
+        },
+        {
+            "id": 53,
+            "name": "Carlito Mediterráneo",
+            "price": 1750,
+            "category": "carlito",
+            "ingredients": ["queso feta", "manteca", "pepino", "tomate", "aceitunas"],
+            "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/02-sandwiches-guacamole-queso-1526975244.jpg?crop=1xw:0.99609375xh;center,top&resize=980:*"
+        }
+    ]
+}

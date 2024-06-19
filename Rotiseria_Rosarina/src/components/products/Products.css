@@ -1,5 +1,5 @@
 .cardsContainer{
     display: grid;
     height: 400px;
-    grid-template-columns: 250px 250px 250px 250px 250px;
+    grid-template-columns: 500px 500px 500px;
 }
