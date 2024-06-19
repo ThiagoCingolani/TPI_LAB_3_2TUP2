@@ -1,7 +1,16 @@
 .card_group{
-    display: grid;
+    margin-top: 1.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    margin-top: 1.5rem;
-    
+    box-shadow: 0px 1px 10px;
+    height: 234px;
+}
+
+.input_group{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.input_group button{
+    margin-right: 10px;
 }
