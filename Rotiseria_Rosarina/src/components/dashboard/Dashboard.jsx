@@ -4,7 +4,6 @@ import ProductSearch from '../productSearch/ProductSearch';
 import Products from '../products/Products';
 import MainLayout from '../layout/MainLayout'
 
-
 const Dashboard = () => {
 
     const [foods, setFoods] = useState([]);
