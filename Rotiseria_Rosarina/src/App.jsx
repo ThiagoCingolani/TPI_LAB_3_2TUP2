@@ -1,6 +1,7 @@
 import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap/dist/js/bootstrap.min.js"
+import Login from "./components/login/Login"
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        
+        <Login/>
       </div>
     </>
   )
