@@ -52,4 +52,3 @@ export const CartProvider = ({ children }) => {
 CartProvider.propTypes = {
   children: PropType.object,
 };
-

@@ -5,12 +5,11 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Evita el desplazamiento del layout */
     display: flex;
     flex-direction: column;
 }
 .content {
 
-    overflow-y: auto; /* Permite el desplazamiento vertical del contenido */
-    padding-top: 30px; /* Ajusta este valor según la altura de tu navbar */
+    overflow-y: auto;
+    padding-top: 30px;
   }

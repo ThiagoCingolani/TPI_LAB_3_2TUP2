@@ -1,42 +1,32 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col, FormControl } from 'react-bootstrap';
-import '../productItem/ProductItem.css';
+import { Button, Card, Row, Col, FormControl, InputGroup, ListGroup } from 'react-bootstrap';
 import { CartContext } from '../../services/cartContext/CartContext';
+import "./CartList.css"
 
 const CartList = ({ toggleCart }) => {
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, handleIncreaseQuantity, handleDecreaseQuantity, quantity } = useContext(CartContext);
 
 
     return (
         <div className="cart-overlay overflow-auto">
             <div className="cart">
-                <h2>Cart</h2>
-                <ul>
+                <h2>Su Carrito</h2>
+                <ListGroup className="mt-3">
                     {cartItems.map(item => (
-                        <Card className="card_group" key={item.id}>
-                            <Card.Body>
+                        <ListGroup.Item key={item.id}>
                                 <Row>
-                                    <Col md={6}>
-                                        <Card.Img variant="top" src={item.imageUrl} height={200} width={250} />
-                                    </Col>
-                                    <Col md={6}>
-                                        <Card.Title>{item.name}</Card.Title>
-                                        <Card.Text>{item.ingredients}</Card.Text>
-                                        <Card.Footer>
-                                            <h5>${item.price}</h5>
-                                            
-                                                <Button variant='primary'>-</Button>
-                                                <FormControl type='number'/>
-                                                <Button variant='primary'>+</Button>
-                                        </Card.Footer>
-                                    </Col>
+                                    {item.name} ${item.price}
+                                    <InputGroup className="d-flex">
+                                        <Button variant='primary' onClick={() => handleDecreaseQuantity(item.id)}>-</Button>
+                                        <FormControl type='input' value={quantity} style={{ width: "50px" }} />
+                                        <Button variant='primary' onClick={() => handleIncreaseQuantity(item.id)}>+</Button>
+                                    </InputGroup>
                                 </Row>
-                            </Card.Body>
-                        </Card>
+                            </ListGroup.Item>
                     ))}
-                </ul>
-                <Button variant="secondary" onClick={toggleCart}>Close</Button>
+                </ListGroup>
+                    <Button variant="secondary" onClick={toggleCart}>Close</Button>
             </div>
         </div>
     );
