@@ -1,10 +1,18 @@
 import React from 'react'
+import Cart from "../icons/Cart.png"
+import { useContext } from 'react';
 import PropTypes from "prop-types";
 import { Card, Row, Col, Button, InputGroup } from 'react-bootstrap'
 import "./ProductItem.css"
 import { CartContext } from '../../services/cartContext/CartContext';
 
-const ProductItem = ({ name, price, ingredients, imageUrl, addToCart }) => {
+const ProductItem = ({ id, name, price, ingredients, imageUrl }) => {
+    const { addToCart } = useContext(CartContext);
+
+    const handleAddToCart = () => {
+        addToCart({ id, name, price, ingredients, imageUrl, quantity: 1 });
+    };
+
 
     return (
         <Card className='card_group'>
@@ -19,7 +27,7 @@ const ProductItem = ({ name, price, ingredients, imageUrl, addToCart }) => {
                         <Card.Footer>
                             <h5>${price}</h5>
                             <InputGroup className="input_group">
-                                <Button variant='primary' className="mr-1 rounded-pill" onClick={addToCart}><img src="https://img.icons8.com/?size=100&id=23175&format=png&color=000000" height={25} width={25}/></Button>
+                                <Button variant='primary' className="mr-1 rounded-pill" onClick={handleAddToCart}><img src={Cart} height={25} width={25} /></Button>
                                 <Button variant='success' className="rounded-pill">Comprar</Button>
                             </InputGroup>
                         </Card.Footer>
@@ -37,7 +45,7 @@ ProductItem.propTypes = {
     category: PropTypes.string,
     ingredients: PropTypes.array,
     imageUrl: PropTypes.string,
-    addToCart: PropTypes.func.isRequired,
+    quantity: PropTypes.number,
 };
 
 export default ProductItem
