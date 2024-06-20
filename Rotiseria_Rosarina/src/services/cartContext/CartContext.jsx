@@ -5,25 +5,30 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [quantity, setQuantity] = useState(1);
+  
+  const handleDeleteItem = (productId) => {
+    setCartItems(cartItems.filter(item => item.id !== productId))
+  }
 
-  const handleIncreaseQuantity = () => {
-    setQuantity(quantity + 1);
+  const handleIncreaseQuantity = (productId) => {
+    setCartItems(cartItems.map(item => 
+      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+    ));
   };
 
-  const handleDecreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const handleDecreaseQuantity = (productId) => {
+    setCartItems(cartItems.map(item => 
+      item.id === productId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+    ));
   };
 
   const addToCart = (product) => {
     const isProductInCart = cartItems.some((item) => item.id === product.id);
 
     if (isProductInCart) {
-      alert('El producto ya está en el carrito.');
+      alert('El producto ya está en el carrito. Si desea aumentar la cantidad hagalo desde el carrito');
     } else {
-      setCartItems([...cartItems, product]);
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
   };
 
@@ -36,11 +41,11 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
-        quantity,
         addToCart,
         removeFromCart,
         handleDecreaseQuantity,
         handleIncreaseQuantity,
+        handleDeleteItem,
       }}
     >
       {children}

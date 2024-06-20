@@ -10,7 +10,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl }) => {
     const { addToCart } = useContext(CartContext);
 
     const handleAddToCart = () => {
-        addToCart({ id, name, price, ingredients, imageUrl, quantity: 1 });
+        addToCart({ id, name, price });
     };
 
 
@@ -35,7 +35,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl }) => {
                 </Row>
             </Card.Body>
         </Card>
-    )
+    );
 }
 
 ProductItem.propTypes = {
@@ -45,7 +45,6 @@ ProductItem.propTypes = {
     category: PropTypes.string,
     ingredients: PropTypes.array,
     imageUrl: PropTypes.string,
-    quantity: PropTypes.number,
 };
 
 export default ProductItem

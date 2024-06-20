@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col, FormControl, InputGroup, ListGroup } from 'react-bootstrap';
+import { Button, Card, Row, Col, FormControl, InputGroup, ListGroup, CloseButton } from 'react-bootstrap';
 import { CartContext } from '../../services/cartContext/CartContext';
 import "./CartList.css"
 
 const CartList = ({ toggleCart }) => {
-    const { cartItems, handleIncreaseQuantity, handleDecreaseQuantity, quantity } = useContext(CartContext);
+    const { cartItems, handleIncreaseQuantity, handleDecreaseQuantity, handleDeleteItem } = useContext(CartContext);
 
 
     return (
@@ -15,18 +15,21 @@ const CartList = ({ toggleCart }) => {
                 <ListGroup className="mt-3">
                     {cartItems.map(item => (
                         <ListGroup.Item key={item.id}>
-                                <Row>
-                                    {item.name} ${item.price}
-                                    <InputGroup className="d-flex">
-                                        <Button variant='primary' onClick={() => handleDecreaseQuantity(item.id)}>-</Button>
-                                        <FormControl type='input' value={quantity} style={{ width: "50px" }} />
-                                        <Button variant='primary' onClick={() => handleIncreaseQuantity(item.id)}>+</Button>
-                                    </InputGroup>
-                                </Row>
-                            </ListGroup.Item>
+                            <Row>
+                                <Col>{item.name} ${item.price * item.quantity}
+                                    <CloseButton style={{ marginLeft: '1rem' }} onClick={() => handleDeleteItem(item.id)}/>
+                                </Col>
+                                <InputGroup className="d-flex">
+                                    <Button variant='primary' onClick={() => handleDecreaseQuantity(item.id)}>-</Button>
+                                    <FormControl type='input' value={item.quantity} style={{ width: "50px", textAlign: 'center' }} readOnly />
+                                    <Button variant='primary' onClick={() => handleIncreaseQuantity(item.id)}>+</Button>
+                                </InputGroup>
+                            </Row>
+                        </ListGroup.Item>
                     ))}
                 </ListGroup>
-                    <Button variant="secondary" onClick={toggleCart}>Close</Button>
+                <h1>Precio total: ${ }</h1>
+                <Button variant="secondary" onClick={toggleCart}>Close</Button>
             </div>
         </div>
     );
