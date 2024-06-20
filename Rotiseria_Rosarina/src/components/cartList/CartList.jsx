@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col } from 'react-bootstrap';
+import { Button, Card, Row, Col, FormControl } from 'react-bootstrap';
 import '../productItem/ProductItem.css';
 import { CartContext } from '../../services/cartContext/CartContext';
 
@@ -25,6 +25,10 @@ const CartList = ({ toggleCart }) => {
                                         <Card.Text>{item.ingredients}</Card.Text>
                                         <Card.Footer>
                                             <h5>${item.price}</h5>
+                                            
+                                                <Button variant='primary'>-</Button>
+                                                <FormControl type='number'/>
+                                                <Button variant='primary'>+</Button>
                                         </Card.Footer>
                                     </Col>
                                 </Row>
