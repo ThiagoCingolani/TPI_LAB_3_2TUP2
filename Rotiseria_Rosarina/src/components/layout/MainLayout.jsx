@@ -1,12 +1,16 @@
 import Header from "../navBar/NavBar";
 import PropTypes from "prop-types";
+import "./MainLayout.css"
 
 const MainLayout = ({ children }) => {
   return (
-    <>
+    <div id="layout">
       <Header />
-      {children}
-    </>
+      <div className="content">
+        {children}
+      </div>
+    </div>
+
   );
 };
 

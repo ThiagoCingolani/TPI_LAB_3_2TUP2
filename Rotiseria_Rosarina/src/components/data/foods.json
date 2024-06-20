@@ -118,7 +118,7 @@
             "price": 3675,
             "category": "pizza",
             "ingredients": ["tomate", "mozzarella", "calabresa"],
-            "imageUrl": "https://www.recetas-argentinas.com/base/stock/Recipe/43-image/43-image_web.jpg.webp"
+            "imageUrl": "https://www.recetas-argentinas.com/base/stock/Recipe/pizza-calabresa/pizza-calabresa_small.jpg.webp"
         },
         {
             "id": 16,

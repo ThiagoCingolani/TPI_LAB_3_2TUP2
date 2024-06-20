@@ -2,11 +2,8 @@ import React from 'react'
 import PropTypes from "prop-types";
 import ProductItem from '../productItem/ProductItem'
 import "./Products.css"
-import { CartContext } from '../../services/cartContext/CartContext';
-import { useContext } from 'react';
 
 const Products = ({ foods }) => {
-  const { addToCart } = useContext(CartContext);
 
   return (
     <div className='cardsContainer'>
@@ -23,13 +20,12 @@ const Products = ({ foods }) => {
         return (
           <ProductItem
             key={food.id}
-            //id={food.id} <<--- ELIMINADO PORQUE TIRA ERROR (PREGUNTAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
+            id={food.id}
             name={food.name}
             price={food.price}
             category={food.category}
             ingredients={formattedIngredients}
             imageUrl={food.imageUrl}
-            addToCart={() => addToCart(food)}
           />
         );
       })}
@@ -39,7 +35,6 @@ const Products = ({ foods }) => {
 
 Products.propTypes = {
   foods: PropTypes.array,
-  addToCart: PropTypes.func.isRequired,
 };
 
 export default Products

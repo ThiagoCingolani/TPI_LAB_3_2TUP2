@@ -19,10 +19,11 @@ const ProductSearch = ({ onSearch }) => {
     return (
         <>
             <Row className="justify-content-center w-100">
-                <Form className="w-75">
+                <Form className="w-50">
                     <Form.Group controlId="formBasicSearch">
                         <InputGroup className="mb-3 mt-4">
                             <Form.Control
+                                className="border-success"
                                 type="text"
                                 placeholder="Busca tu comida"
                                 style={{ textAlign: 'center' }}
