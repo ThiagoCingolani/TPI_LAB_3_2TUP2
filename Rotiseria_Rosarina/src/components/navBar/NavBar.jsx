@@ -1,14 +1,16 @@
 import { useContext, useState } from 'react';
-import { Button, Nav, NavDropdown, Navbar, Card, Row, Col } from "react-bootstrap"
+import { Button, Nav, NavDropdown, Navbar, Badge} from "react-bootstrap"
 import "./NavBar.css"
 import "../productItem/ProductItem.css"
 import Cart from '../icons/Cart.png';
 import CartList from '../cartList/CartList';
 import { AuthenticationContext } from "../../services/authentication/Authentication.context";
+import { CartContext } from '../../services/cartContext/CartContext';
 
 const Header = () => {
   const { handleLogout } = useContext(AuthenticationContext)
   const [showCart, setShowCart] = useState(false);
+  const { cartItems, } = useContext(CartContext);
 
   const onHandleClick = () => {
     handleLogout();
@@ -30,8 +32,11 @@ const Header = () => {
             <NavDropdown.Item href="#action/3.3">Empanadas</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Button variant="dark" style={{ marginRight: '1rem' }} onClick={toggleCart}>
+        <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
           <img src={Cart} height={20} alt="Cart" />
+          <Badge bg="primary" pill>
+            {cartItems.length}
+          </Badge>
         </Button>
         <Button variant="dark" onClick={onHandleClick} style={{ marginRight: '1rem' }}>Cerrar sesión</Button>
       </Navbar.Collapse>
