@@ -20,7 +20,7 @@ const Products = ({ foods }) => {
         return (
           <ProductItem
             key={food.id}
-            id={food.id}
+            id={Number(food.id)}
             name={food.name}
             price={food.price}
             category={food.category}

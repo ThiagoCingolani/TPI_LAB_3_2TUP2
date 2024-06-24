@@ -23,6 +23,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = (product) => {
+    console.log(product)
     const isProductInCart = cartItems.some((item) => item.id === product.id);
 
     if (isProductInCart) {
