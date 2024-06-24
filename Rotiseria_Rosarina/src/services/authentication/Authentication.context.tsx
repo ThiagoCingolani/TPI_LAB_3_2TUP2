@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 import React from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 export const AuthenticationContext = createContext({});
 
@@ -10,9 +10,9 @@ const userValue = userValueString ? JSON.parse(userValueString) : null;
 export const AuthenticationContextProvider = ({ children }) => {
   const [user, setUser] = useState(userValue);
 
-  const handleLogin = (email) => {
-    localStorage.setItem("user", JSON.stringify({ email }));
-    setUser({ email });
+  const handleLogin = (email, role) => {
+    localStorage.setItem("user", JSON.stringify({ email, role }));
+    setUser({ email, role });
   };
 
   const handleLogout = () => {
@@ -28,5 +28,5 @@ export const AuthenticationContextProvider = ({ children }) => {
 };
 
 AuthenticationContextProvider.propTypes = {
-  children: PropType.object,
+  children: PropTypes.object,
 };
