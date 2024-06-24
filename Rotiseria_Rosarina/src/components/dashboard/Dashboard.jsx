@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
-import ProductSearch from '../productSearch/ProductSearch';
-import Products from '../products/Products';
-import MainLayout from '../layout/MainLayout'
-
+import React, { useEffect, useContext, useState } from "react";
+import ProductSearch from "../productSearch/ProductSearch";
+import Products from "../products/Products";
+import MainLayout from "../layout/MainLayout";
+import { AuthenticationContext } from "../../services/authentication/Authentication.context";
 
 const Dashboard = () => {
   const [foods, setFoods] = useState([]);
   const [originalFoods, setOriginalFoods] = useState([]);
+  const { user } = useContext(AuthenticationContext);
 
   useEffect(() => {
     fetch("http://localhost:3001/foods", {
@@ -22,7 +22,7 @@ const Dashboard = () => {
       })
       .then((foodsData) => {
         setFoods(foodsData);
-        setOriginalFoods(foodsData)
+        setOriginalFoods(foodsData);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -39,13 +39,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='d-grid text-center'>
+    <div className="d-grid text-center">
       <MainLayout />
       <ProductSearch onSearch={searchHandler} />
-      <Products foods={foods}/>
+      <Products foods={foods} />
+      {user.role === "Sysadmin" && <div>Contenido exclusivo para Sysadmin</div>}
+      {user.role === "Admin" && <div>Contenido exclusivo para Admin</div>}
     </div>
+  );
+};
 
-  )
-}
-
-export default Dashboard
+export default Dashboard;
