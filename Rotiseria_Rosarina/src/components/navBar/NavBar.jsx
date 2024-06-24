@@ -9,7 +9,7 @@ import { CartContext } from '../../services/cartContext/CartContext';
 
 const Header = () => {
   const { handleLogout } = useContext(AuthenticationContext)
-  const [showCart, setShowCart] = useState(false);
+  const [ showCart, setShowCart ] = useState(false);
   const { cartItems, } = useContext(CartContext);
 
   const onHandleClick = () => {

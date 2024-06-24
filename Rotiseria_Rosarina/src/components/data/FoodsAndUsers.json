@@ -424,5 +424,27 @@
             "ingredients": ["queso feta", "manteca", "pepino", "tomate", "aceitunas"],
             "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/02-sandwiches-guacamole-queso-1526975244.jpg?crop=1xw:0.99609375xh;center,top&resize=980:*"
         }
+    ],
+
+
+    "Users":[
+        {
+            "id": 1,
+            "Username": "SoySysAdmin",
+            "Email": "sysadmin@gmail.com",
+            "role": "Sysadmin"
+        },
+        {
+            "id": 2,
+            "Username": "SoyAdmin",
+            "Email": "admin@gmail.com",
+            "role": "Admin"
+        },
+        {
+            "id": 3,
+            "Username": "SoyUser",
+            "Email": "user@gmail.com",
+            "role": "User"
+        }   
     ]
 }
