@@ -44,7 +44,7 @@ const Dashboard = () => {
       <ProductSearch onSearch={searchHandler} />
       <Products foods={foods} />
       {user.role === "Sysadmin" && <div>Contenido exclusivo para Sysadmin</div>}
-      {user.role === "Admin" && <div>Contenido exclusivo para Admin</div>}
+      {user.role === "Admin" && <div>Contenido exclusivo para Admin</div> && <div>Contenido exclusivo para Admin</div>}
     </div>
   );
 };

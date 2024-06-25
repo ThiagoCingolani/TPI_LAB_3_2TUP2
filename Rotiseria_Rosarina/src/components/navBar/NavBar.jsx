@@ -8,9 +8,10 @@ import { AuthenticationContext } from "../../services/authentication/Authenticat
 import { CartContext } from '../../services/cartContext/CartContext';
 
 const Header = () => {
-  const { handleLogout } = useContext(AuthenticationContext)
+  const { handleLogout, user } = useContext(AuthenticationContext)
   const [ showCart, setShowCart ] = useState(false);
   const { cartItems, } = useContext(CartContext);
+  
 
   const onHandleClick = () => {
     handleLogout();
@@ -22,7 +23,7 @@ const Header = () => {
 
   return (
     <Navbar id="navbar" expand="lg" fixed='top'>
-      <Navbar.Brand href="#home" style={{ marginLeft: '1rem' }}>Rotiseria Rosarina</Navbar.Brand>
+      <Navbar.Brand href='http://localhost:5173/' style={{ marginLeft: '1rem' }}>Rotiseria Rosarina</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
