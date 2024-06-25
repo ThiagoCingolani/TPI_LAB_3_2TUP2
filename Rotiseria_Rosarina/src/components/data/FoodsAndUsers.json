@@ -712,36 +712,36 @@
     {
       "id": "1",
       "Username": "SoySysAdmin",
-      "Email": "sysadmin@gmail.com",
+      "email": "sysadmin@gmail.com",
       "password": "sysadmin",
       "role": "Sysadmin"
     },
     {
       "id": "2",
       "Username": "SoyAdmin",
-      "Email": "admin@gmail.com",
+      "email": "admin@gmail.com",
       "password": "admin",
       "role": "Admin"
     },
     {
       "id": "3",
       "Username": "SoyUser",
-      "Email": "user@gmail.com",
+      "email": "user@gmail.com",
       "password": "user",
       "role": "User"
     },
     {
-      "id": "5ce4",
-      "username": "hola1",
-      "email": "hola1@gmail.com",
-      "password": "hola1",
+      "id": "e5f8",
+      "username": "Ricardo",
+      "email": "richard@gmail.com",
+      "password": "ricardo",
       "role": "User"
     },
     {
-      "id": "4631",
+      "id": "e8f9",
       "username": "Rodrigo",
       "email": "rodrigonzales@gmail.com",
-      "password": "jueputa",
+      "password": "rodri",
       "role": "User"
     }
   ]

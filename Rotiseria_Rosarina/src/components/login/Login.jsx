@@ -43,11 +43,11 @@ const Login = () => {
 
       if (users.length === 1) {
         const user = users[0];
-        handleLogin(user.Email, user.role);
+        handleLogin(user.email, user.role);
         navigate("/");
       } else {
         setErrors({ ...errors, exist: true });
-        alert("sos tremendo trolazo, te re cabe")
+        alert("Ha ingresado mal su email o su contraseña, vuelva a intentarlo")
       }
     } catch (error) {
       setErrors({ ...errors, exist: true });
@@ -61,7 +61,7 @@ const Login = () => {
           <Form className="text-center">
             <h1>Iniciar Sesión</h1>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <FloatingLabel controlId="floatingInput" label="Ingresar su Email" className="mb-3">
+              <FloatingLabel label="Ingresar su Email" className="mb-3">
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
@@ -89,7 +89,7 @@ const Login = () => {
             <Button variant="success" type="submit" onClick={loginHandler}>
               Iniciar Sesión
             </Button>
-            <h6>No tienes cuenta creada? <a href="http://localhost:5173/register">Creá tu cuenta</a></h6>
+            <h6>No tenes una cuenta creada?<Button variant="link" className="fw-bold pt-1" onClick={()=>{navigate("/register")}}>Creá tu cuenta</Button></h6>
           </Form>
           {(errors.email || errors.password) && (
               <div className="mt-3 mb-3">
