@@ -30,7 +30,7 @@ const Dashboard = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
+  }, [foods]);
 
   const searchHandler = (searchTerm) => {
     const filteredFoods = originalFoods.filter(
@@ -43,7 +43,7 @@ const Dashboard = () => {
 
   const saveProductDataHandler = async (enteredProductData) => {
     const productDto = {
-      id: foods.length + 1,
+      id: String(foods.length + 1),
       name: enteredProductData.name,
       price: enteredProductData.price,
       category: enteredProductData.category,
@@ -80,19 +80,22 @@ const Dashboard = () => {
   return (
     <div className="d-grid text-center">
       <MainLayout />
-      {user && user.role === "Admin" && 
-      <Button 
-        onClick={toggleAddProduct}
-        style={{height:"50px", width:"250px"}}
-        className="d-flex justify-content-center align-items-center">Agregar Producto
-      </Button>}
+      {user && user.role === "Admin" &&
+      <div>
+          <Button 
+            variant="success"
+            onClick={toggleAddProduct}
+            style={{ height: "50px", width: "250px" }}>
+            Agregar Producto
+          </Button>
+      </div>}
       {showAddProduct &&
-        <AddProducts toggleAddProduct={toggleAddProduct} foods={foods} onProductDataSaved={saveProductDataHandler}/>
+        <AddProducts toggleAddProduct={toggleAddProduct} foods={foods} onProductDataSaved={saveProductDataHandler} />
       }
       <ProductSearch onSearch={searchHandler} />
       <Products foods={foods} />
       {user.role === "Sysadmin" && <div>Contenido exclusivo para Sysadmin</div>}
-      
+
     </div>
   );
 };

@@ -33,7 +33,7 @@ const CartList = ({ toggleCart }) => {
                     ))}
                 </ListGroup>
                 <h1>Precio total: ${calculateTotalPrice().toFixed(2)} </h1>
-                <Button variant="secondary" onClick={toggleCart}>Close</Button>
+                <Button variant="secondary" onClick={toggleCart}>Cerrar</Button>
             </div>
         </div>
     );

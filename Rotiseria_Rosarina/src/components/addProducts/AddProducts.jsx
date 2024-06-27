@@ -185,7 +185,7 @@ const AddProducts = ({ onProductDataSaved, foods, toggleAddProduct }) => {
                                         <Col md={3} className="d-flex justify-content-center">
                                             <Button
                                                 disabled={!productForm.formValid}
-                                                variant="outline-dark"
+                                                variant="primary"
                                                 type="submit"
                                             >
                                                 Agregar producto
@@ -197,7 +197,7 @@ const AddProducts = ({ onProductDataSaved, foods, toggleAddProduct }) => {
                         </Card>
                     </Col>
                 </Row>
-                <Button variant="outline-dark" onClick={toggleAddProduct}>Cerrar</Button>
+                <Button className="mt-4" variant="danger" onClick={toggleAddProduct}>Cerrar</Button>
             </div>
         </div>
             

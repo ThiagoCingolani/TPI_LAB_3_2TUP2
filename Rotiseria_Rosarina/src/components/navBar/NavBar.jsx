@@ -6,7 +6,6 @@ import Cart from '../icons/Cart.png';
 import CartList from '../cartList/CartList';
 import { AuthenticationContext } from "../../services/authentication/Authentication.context";
 import { CartContext } from '../../services/cartContext/CartContext';
-import AddProducts from '../addProducts/AddProducts';
 
 const Header = () => {
   const { handleLogout, user } = useContext(AuthenticationContext)
