@@ -9,6 +9,7 @@ import { Button } from "react-bootstrap";
 const Dashboard = () => {
   const [foods, setFoods] = useState([]);
   const [originalFoods, setOriginalFoods] = useState([]);
+  const [showAddProduct, setShowAddProduct] = useState(false);
   const { user } = useContext(AuthenticationContext);
 
   useEffect(() => {
@@ -66,21 +67,32 @@ const Dashboard = () => {
       }
 
       const data = await response.json();
-      setFoods(...foods, data);
+      setFoods((prevFoods) => [...prevFoods, data]);
     } catch (error) {
       alert(error);
     }
   };
 
+  const toggleAddProduct = () => {
+    setShowAddProduct(!showAddProduct);
+  }
+
   return (
     <div className="d-grid text-center">
       <MainLayout />
+      {user && user.role === "Admin" && 
+      <Button 
+        onClick={toggleAddProduct}
+        style={{height:"50px", width:"250px"}}
+        className="d-flex justify-content-center align-items-center">Agregar Producto
+      </Button>}
+      {showAddProduct &&
+        <AddProducts toggleAddProduct={toggleAddProduct} foods={foods} onProductDataSaved={saveProductDataHandler}/>
+      }
       <ProductSearch onSearch={searchHandler} />
-      <AddProducts foods={foods} onProductDataSaved={saveProductDataHandler}/>
-      {/* <Button variant="success" style={{width:"100px", height:"45px"}} >Agregar producto</Button> */}
       <Products foods={foods} />
       {user.role === "Sysadmin" && <div>Contenido exclusivo para Sysadmin</div>}
-      {user.role === "Admin" && <div>Contenido exclusivo para Admin</div>}
+      
     </div>
   );
 };

@@ -11,7 +11,6 @@ import AddProducts from '../addProducts/AddProducts';
 const Header = () => {
   const { handleLogout, user } = useContext(AuthenticationContext)
   const [showCart, setShowCart] = useState(false);
-  const [showAddProduct, setShowAddProduct] = useState(false);
   const { cartItems, } = useContext(CartContext);
 
 
@@ -22,10 +21,6 @@ const Header = () => {
   const toggleCart = () => {
     setShowCart(!showCart);
   };
-
-  const toggleAddProduct = () => {
-    setShowAddProduct(!showAddProduct);
-  }
 
   return (
     <Navbar id="navbar" expand="lg" fixed='top'>
@@ -40,7 +35,6 @@ const Header = () => {
               <NavDropdown.Item href="#action/3.3">Empanadas</NavDropdown.Item>
             </NavDropdown>
           </div>}
-          {user && user.role === "Admin" && <Button onClick={toggleAddProduct}>Agregar Producto</Button>}
         </Nav>
         {user && <div>
           <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
@@ -54,9 +48,6 @@ const Header = () => {
       </Navbar.Collapse>
       {showCart &&
         <CartList toggleCart={toggleCart} />
-      }
-      {showAddProduct &&
-        <AddProducts toggleAddProduct={toggleAddProduct} />
       }
     </Navbar>
   );
