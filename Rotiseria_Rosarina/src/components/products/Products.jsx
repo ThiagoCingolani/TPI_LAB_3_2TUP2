@@ -22,7 +22,7 @@ const Products = ({ foods }) => {
             key={food.id}
             id={Number(food.id)}
             name={food.name}
-            price={food.price}
+            price={Number(food.price)}
             category={food.category}
             ingredients={formattedIngredients}
             imageUrl={food.imageUrl}

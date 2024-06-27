@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "react-scripts start",
-    "server": "json-server --watch ./src/components/data/foods.json --port 3001"
+    "server": "json-server --watch ./src/components/data/FoodsAndUsers.json --port 3001"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

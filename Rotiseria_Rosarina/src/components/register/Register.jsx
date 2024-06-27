@@ -23,6 +23,9 @@ const Register = () => {
       const response = await fetch('http://localhost:3001/Users', {
         method: 'POST',
         mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(newUser)
       });
 
