@@ -706,64 +706,6 @@
         "aceitunas"
       ],
       "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/02-sandwiches-guacamole-queso-1526975244.jpg?crop=1xw:0.99609375xh;center,top&resize=980:*"
-    },
-    {
-      "id": "54",
-      "name": "Tostado",
-      "price": "5000",
-      "category": "carlito",
-      "ingredients": [
-        "pan",
-        "queso",
-        "jamon"
-      ],
-      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
-    },
-    {
-      "id": "55",
-      "name": "Pancho",
-      "price": "2500",
-      "category": "pizza",
-      "ingredients": [
-        "salchica",
-        "pan"
-      ],
-      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
-    },
-    {
-      "id": 56,
-      "name": "thiago",
-      "price": "5250",
-      "category": "empanada",
-      "ingredients": [
-        "carisma",
-        "fachero"
-      ],
-      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
-    },
-    {
-      "id": 57,
-      "name": "roberto",
-      "price": "5000",
-      "category": "carlito",
-      "ingredients": [
-        "benito",
-        "92",
-        "vladimir"
-      ],
-      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
-    },
-    {
-      "id": 58,
-      "name": "poul",
-      "price": "20",
-      "category": "empanada",
-      "ingredients": [
-        "calor",
-        "balcon",
-        "drogas"
-      ],
-      "imageUrl": "https://scontent.fros8-1.fna.fbcdn.net/v/t39.30808-1/248579414_276735497800290_1049892309727903602_n.jpg?stp=dst-jpg_p200x200&_nc_cat=110&ccb=1-7&_nc_sid=f4b9fd&_nc_ohc=wUEs3NT61asQ7kNvgEUqlYB&_nc_ht=scontent.fros8-1.fna&oh=00_AYB--wttK0xeXFTSKUCpUx4j2pKXdXkxfLwIxV9IYtTfWQ&oe=668398A8"
     }
   ],
   "Users": [
