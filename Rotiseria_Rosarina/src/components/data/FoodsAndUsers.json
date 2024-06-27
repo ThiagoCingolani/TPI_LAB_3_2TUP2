@@ -706,6 +706,29 @@
         "aceitunas"
       ],
       "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/02-sandwiches-guacamole-queso-1526975244.jpg?crop=1xw:0.99609375xh;center,top&resize=980:*"
+    },
+    {
+      "id": 54,
+      "name": "Tostado",
+      "price": "5000",
+      "category": "carlito",
+      "ingredients": [
+        "pan",
+        "queso",
+        "jamon"
+      ],
+      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
+    },
+    {
+      "id": 55,
+      "name": "Pancho",
+      "price": "2500",
+      "category": "pizza",
+      "ingredients": [
+        "salchica",
+        "pan"
+      ],
+      "imageUrl": "https://acdn.mitiendanube.com/stores/480/355/products/tostadas-jq1-d2c40500309175ab1315119478812711-640-0.webp"
     }
   ],
   "Users": [
