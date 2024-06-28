@@ -48,11 +48,10 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
                 throw new Error('Failed to update product.');
             }
 
-            onUpdate(updatedProductData); // Update locally in parent component
-            setShowModal(false); // Close modal on success
+            onUpdate(updatedProductData);
+            setShowModal(false);
         } catch (error) {
             console.error('Error updating product:', error);
-            // Handle error as needed
         }
     };
 
@@ -118,7 +117,6 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
 
 
 
-            {/* Modal para modificar producto */}
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modificar Producto</Modal.Title>
