@@ -35,15 +35,17 @@ const Header = () => {
             </NavDropdown>
           </div>}
         </Nav>
-        {user && <div>
-          <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
-            <img src={Cart} height={20} alt="Cart" />
-            <Badge bg="primary" pill>
-              {cartItems.length}
-            </Badge>
-          </Button>
-          <Button variant="dark" onClick={onHandleClick} style={{ marginRight: '1rem' }}>Cerrar sesión</Button>
-        </div>}
+        {user && user.role === "User" &&
+          <div>
+            <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
+              <img src={Cart} height={20} alt="Cart" />
+              <Badge bg="primary" pill>
+                {cartItems.length}
+              </Badge>
+            </Button>
+          </div>
+        }
+        <Button variant="dark" onClick={onHandleClick} style={{ marginRight: '1rem' }}>Cerrar sesión</Button>
       </Navbar.Collapse>
       {showCart &&
         <CartList toggleCart={toggleCart} />

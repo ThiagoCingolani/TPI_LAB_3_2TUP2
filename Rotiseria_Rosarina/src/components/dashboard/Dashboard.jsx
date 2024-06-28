@@ -32,6 +32,13 @@ const Dashboard = () => {
       });
   }, [foods]);
 
+  const updateProductHandler = (updatedProductData) => {
+    const updatedFoods = foods.map((food) =>
+      food.id === updatedProductData.id ? updatedProductData : food
+    );
+    setFoods(updatedFoods);
+  };
+
   const searchHandler = (searchTerm) => {
     const filteredFoods = originalFoods.filter(
       (food) =>
@@ -93,9 +100,7 @@ const Dashboard = () => {
         <AddProducts toggleAddProduct={toggleAddProduct} foods={foods} onProductDataSaved={saveProductDataHandler} />
       }
       <ProductSearch onSearch={searchHandler} />
-      <Products foods={foods} />
-      {user.role === "Sysadmin" && <div>Contenido exclusivo para Sysadmin</div>}
-
+      <Products foods={foods} onUpdate={updateProductHandler}/>
     </div>
   );
 };
