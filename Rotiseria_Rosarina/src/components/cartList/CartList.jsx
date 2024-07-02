@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col, FormControl, InputGroup, ListGroup, CloseButton } from 'react-bootstrap';
+import { Button, Row, Col, FormControl, InputGroup, ListGroup, CloseButton } from 'react-bootstrap';
 import { CartContext } from '../../services/cartContext/CartContext';
 import "./CartList.css"
 
@@ -19,8 +19,7 @@ const CartList = ({ toggleCart }) => {
                                 <Col>
                                     <h3>
                                         {item.name} ${item.price * item.quantity}
-                                        <CloseButton style={{ marginLeft: '1rem' }} onClick={() => handleDeleteItem(item.id)}
-                                        />
+                                        <CloseButton style={{ marginLeft: '1rem' }} onClick={() => handleDeleteItem(item.id)}/>
                                     </h3>
                                 </Col>
                                 <InputGroup className="d-flex">
