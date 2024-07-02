@@ -12,24 +12,38 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newUser = {
-      username,
-      email,
-      password,
-      role: 'User'
-    };
-
     try {
       const response = await fetch('http://localhost:3001/Users', {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Error fetching users');
+      }
+
+      const users = await response.json();
+      const newId = users.length + 1;
+
+      const newUser = {
+        id: newId,
+        username,
+        email,
+        password,
+        role: 'User'
+      };
+
+      const registerResponse = await fetch('http://localhost:3001/Users', {
         method: 'POST',
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newUser)
       });
 
-      if (response.ok) {
+      if (registerResponse.ok) {
         alert('Registro exitoso');
         navigate('/login');
       } else {

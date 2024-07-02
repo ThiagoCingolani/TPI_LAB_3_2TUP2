@@ -710,38 +710,31 @@
   ],
   "Users": [
     {
-      "id": "1",
-      "Username": "SoySysAdmin",
+      "id": 1,
+      "username": "SoySysAdmin",
       "email": "sysadmin@gmail.com",
       "password": "sysadmin",
       "role": "Sysadmin"
     },
     {
-      "id": "2",
-      "Username": "SoyAdmin",
+      "id": 2,
+      "username": "SoyAdmin",
       "email": "admin@gmail.com",
       "password": "admin",
       "role": "Admin"
     },
     {
-      "id": "3",
-      "Username": "SoyUser",
+      "id": 3,
+      "username": "SoyUser",
       "email": "user@gmail.com",
       "password": "user",
       "role": "User"
     },
     {
-      "id": "e5f8",
-      "username": "Ricardo",
-      "email": "richard@gmail.com",
-      "password": "ricardo",
-      "role": "User"
-    },
-    {
-      "id": "e8f9",
-      "username": "Rodrigo",
-      "email": "rodrigonzales@gmail.com",
-      "password": "rodri",
+      "id": 4,
+      "username": "anashix",
+      "email": "anashix@gmail.com",
+      "password": "anashix",
       "role": "User"
     }
   ]
