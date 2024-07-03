@@ -1,29 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Form, FloatingLabel, Card } from "react-bootstrap";
-
+import { Alert, Button, Form, FloatingLabel, Card } from "react-bootstrap";
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({ username: false, email: false, password: false });
+  const usernameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchNextId = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/Users');
+        if (!response.ok) {
+          throw new Error('Error fetching users');
+        }
+        const users = await response.json();
+        const newId = users.length + 1;
+
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchNextId();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/Users', {
-        method: 'GET',
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
+      const response = await fetch('http://localhost:3001/Users');
       if (!response.ok) {
         throw new Error('Error fetching users');
       }
-
       const users = await response.json();
       const newId = users.length + 1;
 
@@ -38,7 +52,7 @@ const Register = () => {
       const registerResponse = await fetch('http://localhost:3001/Users', {
         method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(newUser)
       });
@@ -55,6 +69,49 @@ const Register = () => {
     }
   };
 
+  const validateEmail = () => {
+    return email.includes('@gmail.com') || email.includes('@hotmail.com');
+  };
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    setErrors({ ...errors, username: false });
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setErrors({ ...errors, email: false });
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setErrors({ ...errors, password: false });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    if (!username) {
+      usernameRef.current.focus();
+      setErrors({ ...errors, username: true });
+      return;
+    }
+
+    if (!validateEmail()) {
+      emailRef.current.focus();
+      setErrors({ ...errors, email: true });
+      return;
+    }
+
+    if (!password) {
+      passwordRef.current.focus();
+      setErrors({ ...errors, password: true });
+      return;
+    }
+
+    handleSubmit(e);
+  };
+
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>
       <Card className="p-4 px-5 shadow" style={{ width: "500px", height: "420px" }}>
@@ -66,9 +123,11 @@ const Register = () => {
                 <Form.Control
                   type="text"
                   placeholder="Nombre de usuario"
+                  ref={usernameRef}
                   value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={handleUsernameChange}
                   required
+                  className={errors.username && "border border-danger"}
                 />
               </FloatingLabel>
             </Form.Group>
@@ -77,9 +136,11 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
+                  ref={emailRef}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   required
+                  className={errors.email && "border border-danger"}
                 />
               </FloatingLabel>
             </Form.Group>
@@ -88,17 +149,24 @@ const Register = () => {
                 <Form.Control
                   type='password'
                   placeholder="Password"
+                  ref={passwordRef}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handlePasswordChange}
                   required
+                  className={errors.password && "border border-danger"}
                 />
               </FloatingLabel>
             </Form.Group>
-            <Button variant="success" type="submit" onClick={handleSubmit}>
+            <Button variant="success" type="submit" onClick={handleRegister}>
               Crear cuenta
             </Button>
-            <h6>Ya tenés una cuenta?<Button variant="link" className="fw-bold pt-1" onClick={()=>{navigate("/login")}}>Iniciá Sesión</Button></h6>
+            <h6>¿Ya tienes una cuenta? <Button variant="link" className="fw-bold pt-1" onClick={() => navigate("/login")}>Iniciar Sesión</Button></h6>
           </Form>
+          {(errors.email || errors.password || errors.username) && (
+              <div className="mt-3 mb-3">
+                <Alert variant="danger">Complete los campos y/o cumpla los criterios</Alert>
+              </div>
+            )}
         </Card.Body>
       </Card>
     </div>

@@ -25,7 +25,7 @@ const Users = ({ users, toggleUsers, searchUserHandler }) => {
           return (
             <ManageUsers
               key={user.id}
-              id={user.id}
+              id={Number(user.id)}
               username={user.username}
               email={user.email}
               role={user.role}

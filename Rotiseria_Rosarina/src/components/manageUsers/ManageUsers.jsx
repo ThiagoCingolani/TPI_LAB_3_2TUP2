@@ -2,7 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap'
 
-const ManageUsers = ({ username, email, role }) => {
+const ManageUsers = ({ username, email, role, id }) => {
+
+  const deleteProduct = async (userId) => {
+    if (confirm("¿Estás seguro de que deseas continuar?")) {
+      try {
+        const response = await fetch(`http://localhost:3001/Users/${userId}`, {
+          method: "DELETE",
+          mode: "cors",
+        });
+
+        if (!response.ok) {
+          throw new Error("Fallo al intentar eliminar un usuario.");
+        }
+        alert("Usuario eliminado correctamente.");
+      }
+      catch (error) {
+        alert(error);
+      }
+    }
+  };
+
   return (
     <div>
       <Card border="primary" style={{ width: '515px' }} className='mb-4'>
@@ -22,7 +42,7 @@ const ManageUsers = ({ username, email, role }) => {
           </table>
         </Card.Body>
         <div className='d-flex justify-content-around mb-2'>
-          <Button variant='danger'>Eliminar usuario</Button>
+          <Button variant='danger' onClick={() => deleteProduct(id)}>Eliminar usuario</Button>
           <Button variant='primary'>Modificar usuario</Button>
         </div>
       </Card>
@@ -31,6 +51,7 @@ const ManageUsers = ({ username, email, role }) => {
 }
 
 ManageUsers.propTypes = {
+  id: PropTypes.number,
   username: PropTypes.string,
   email: PropTypes.string,
   role: PropTypes.string,
