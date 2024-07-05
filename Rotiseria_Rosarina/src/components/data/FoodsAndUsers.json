@@ -734,29 +734,8 @@
       "id": "4",
       "username": "anashix",
       "email": "anashix@gmail.com",
-      "password": "anashix",
+      "password": "anashixx",
       "role": "User"
-    },
-    {
-      "id": "5",
-      "username": "ricardo",
-      "email": "richard@gmail.com",
-      "password": "ricahar",
-      "role": "User"
-    },
-    {
-      "id": "6",
-      "username": "Roberto",
-      "email": "rober@gmail.com",
-      "password": "rober",
-      "role": "Admin"
-    },
-    {
-      "id": "8",
-      "username": "hola",
-      "email": "hola@gmail.com",
-      "password": "hola1",
-      "role": "Sysadmin"
     }
   ]
 }

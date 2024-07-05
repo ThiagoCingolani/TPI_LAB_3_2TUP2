@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cart from "../icons/Cart.png"
+import useModal from '../hooks/useModal.jsx'
 import { useContext } from 'react';
 import PropTypes from "prop-types";
 import { Card, Row, Col, Button, InputGroup, Modal, Form } from 'react-bootstrap'
@@ -8,6 +9,7 @@ import { CartContext } from '../../services/cartContext/CartContext';
 import { AuthenticationContext } from '../../services/authentication/Authentication.context';
 
 const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdate }) => {
+    const {isOpen,openModal,closeModal,} = useModal()
     const { addToCart } = useContext(CartContext);
     const { user } = useContext(AuthenticationContext)
     const [showModal, setShowModal] = useState(false);
@@ -104,7 +106,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
                                         <Button variant='danger' className='mr-1 rounded-pill' onClick={() => deleteProduct(id)}>
                                             Eliminar
                                         </Button>
-                                        <Button variant='primary' className='mr-1 rounded-pill' onClick={handleOpenModal}>
+                                        <Button variant='primary' className='mr-1 rounded-pill' onClick={openModal}>
                                             Modificar
                                         </Button>
                                     </div>
@@ -118,7 +120,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
 
 
             {/* Modal para modificar producto */}
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal show={isOpen} onHide={closeModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modificar Producto</Modal.Title>
                 </Modal.Header>
@@ -167,7 +169,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>
+                    <Button variant="secondary" onClick={closeModal}>
                         Cerrar
                     </Button>
                     <Button variant="primary" onClick={handleApplyChanges}>
