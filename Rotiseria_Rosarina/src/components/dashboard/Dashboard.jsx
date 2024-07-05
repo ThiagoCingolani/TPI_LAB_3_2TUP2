@@ -56,6 +56,15 @@ const Dashboard = () => {
       });
   },[]);
 
+
+  const updateUsersHandler = (updatedUsersData) => {
+    const updatedUsers = users.map((user) =>
+      user.id === updatedUsersData.id ? updatedProductData : user
+    );
+    setUsers(updatedUsers);
+  };
+
+
   const updateProductHandler = (updatedProductData) => {
     const updatedFoods = foods.map((food) =>
       food.id === updatedProductData.id ? updatedProductData : food
@@ -147,7 +156,7 @@ const Dashboard = () => {
           </Button>
         </div>
       }
-      {showUsers && <Users users={users} searchUserHandler={searchUserHandler} toggleUsers={toggleUsers}/>}
+      {showUsers && <Users users={users} searchUserHandler={searchUserHandler} toggleUsers={toggleUsers} onUpdateUsers={updateUsersHandler}/>}
       <ProductSearch onSearch={searchHandler} />
       <Products foods={foods} onUpdate={updateProductHandler} />
     </div>

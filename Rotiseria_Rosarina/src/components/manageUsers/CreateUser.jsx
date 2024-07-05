@@ -1,9 +1,9 @@
 import React from 'react'
-import { Alert, Button, Form, FloatingLabel, Card, Dropdown } from "react-bootstrap";
+import { Alert, Button, Form, FloatingLabel, Card, Modal } from "react-bootstrap";
 import PropTypes from 'prop-types'
 import { useState, useRef, useEffect } from 'react';
 
-const CreateUser = ({ toggleCreateUser }) => {
+const CreateUser = ({isOpen, closeModal}) => {
   const [createUsername, setCreateUsername] = useState('');
   const [createEmail, setCreateEmail] = useState('');
   const [createPassword, setCreatePassword] = useState('');
@@ -43,7 +43,7 @@ const CreateUser = ({ toggleCreateUser }) => {
       const newId = users.length + 1;
 
       const newUser = {
-        id: newId,
+        id: String(newId),
         username: createUsername,
         email: createEmail,
         password: createPassword,
@@ -119,77 +119,73 @@ const CreateUser = ({ toggleCreateUser }) => {
   return (
     <div className="cart-overlay overflow-auto">
       <div className="cart">
-        <Card className="p-4 px-5 shadow" style={{ width: "500px", height: "480px" }}>
-          <Card.Body>
-            <Form className="text-center">
-              <h1>Crear un usuario</h1>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
-                <FloatingLabel controlId="floatingUsername" label="Ingresar el nombre de usuario" className="mb-3">
-                  <Form.Control
-                    type="text"
-                    placeholder="Nombre de usuario"
-                    ref={usernameRef}
-                    value={createUsername}
-                    onChange={handleUsernameChange}
-                    className={errors.username && "border border-danger"}
-                    required
-                  />
-                </FloatingLabel>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <FloatingLabel controlId="floatingInput" label="Ingresar su Email" className="mb-3">
-                  <Form.Control
-                    type="email"
-                    placeholder="name@example.com"
-                    ref={emailRef}
-                    value={createEmail}
-                    onChange={handleEmailChange}
-                    className={errors.email && "border border-danger"}
-                    required
-                  />
-                </FloatingLabel>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <FloatingLabel controlId="floatingPassword" label="Ingresar su contraseña">
-                  <Form.Control
-                    type='password'
-                    placeholder="Password"
-                    ref={passwordRef}
-                    value={createPassword}
-                    onChange={handlePasswordChange}
-                    className={errors.password && "border border-danger"}
-                    required
-                  />
-                </FloatingLabel>
-              </Form.Group>
-              <Form.Group controlId="exampleForm.SelectCustom">
-                <Form.Label>Seleccione el rol del usuario</Form.Label>
-                <Form.Control as="select" value={createRole} onChange={handleSelectChange}>
-                  <option value="User">User</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Sysadmin">Sysadmin</option>
-                </Form.Control>
-              </Form.Group>
+          <Modal className='d-flex justify-content-center align-items-center vh-100' show={isOpen} onHide={closeModal}>
+            <Modal.Body style={{width: "480px", height: "480px"}}>
+              <Form className="text-center">
+                <h1>Crear un usuario</h1>
+                <Form.Group className="mb-3" controlId="formBasicUsername">
+                  <FloatingLabel controlId="floatingUsername" label="Ingresar el nombre de usuario" className="mb-3">
+                    <Form.Control
+                      type="text"
+                      placeholder="Nombre de usuario"
+                      ref={usernameRef}
+                      value={createUsername}
+                      onChange={handleUsernameChange}
+                      className={errors.username && "border border-danger"}
+                      required
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <FloatingLabel controlId="floatingInput" label="Ingresar su Email" className="mb-3">
+                    <Form.Control
+                      type="email"
+                      placeholder="name@example.com"
+                      ref={emailRef}
+                      value={createEmail}
+                      onChange={handleEmailChange}
+                      className={errors.email && "border border-danger"}
+                      required
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <FloatingLabel controlId="floatingPassword" label="Ingresar su contraseña">
+                    <Form.Control
+                      type='password'
+                      placeholder="Password"
+                      ref={passwordRef}
+                      value={createPassword}
+                      onChange={handlePasswordChange}
+                      className={errors.password && "border border-danger"}
+                      required
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+                <Form.Group controlId="exampleForm.SelectCustom">
+                  <Form.Label>Seleccione el rol del usuario</Form.Label>
+                  <Form.Control as="select" value={createRole} onChange={handleSelectChange}>
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Sysadmin">Sysadmin</option>
+                  </Form.Control>
+                </Form.Group>
 
-              <Button variant="outline-success" type="submit" className='mt-3' onClick={handleCreate}>
-                Crear usuario
-              </Button>
-              <Button variant="secondary" className='mt-3' onClick={toggleCreateUser}>Cerrar</Button>
-            </Form>
-            {(errors.email || errors.password || errors.username) && (
-              <div className="mt-3 mb-3">
-                <Alert variant="danger">Complete los campos y/o cumpla los criterios</Alert>
-              </div>
-            )}
-          </Card.Body>
-        </Card>
+                <Button variant="outline-success" type="submit" className='mt-3' onClick={handleCreate}>
+                  Crear usuario
+                </Button>
+                <Button variant="secondary" className='mt-3' onClick={closeModal}>Cerrar</Button>
+              </Form>
+              {(errors.email || errors.password || errors.username) && (
+                <div className="mt-3 mb-3">
+                  <Alert variant="danger">Complete los campos y/o cumpla los criterios</Alert>
+                </div>
+              )}
+            </Modal.Body>
+          </Modal>
       </div>
     </div>
   )
-}
-
-CreateUser.propTypes = {
-  toggleCreateUser: PropTypes.func
 }
 
 export default CreateUser

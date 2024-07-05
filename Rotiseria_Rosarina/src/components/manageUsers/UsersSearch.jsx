@@ -21,7 +21,7 @@ const UsersSearch = ({searchUserHandler}) => {
     <div>
       <Row className="justify-content-center w-100">
         <Form style={{width: "500px"}}>
-          <Form.Group controlId="formBasicSearch">
+          <Form.Group controlId="formBasicUserSearch">
             <InputGroup className="mb-3 mt-4">
               <Form.Control
                 className="border-success"
