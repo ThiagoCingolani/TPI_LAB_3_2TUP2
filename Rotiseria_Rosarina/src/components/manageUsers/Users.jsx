@@ -6,9 +6,8 @@ import CreateUser from './CreateUser';
 import useModal from '../hooks/useModal';
 import { Button } from 'react-bootstrap';
 
-const Users = ({ users, searchUserHandler, onUpdateUsers }) => {
-  const { isOpen, openModal, closeModal, } = useModal()
-
+const Users = ({ users, searchUserHandler, onUpdateUsers, closeModal }) => {
+  const { isOpen, openModal } = useModal()
   return (
     <div className="cart-overlay">
       <div className="cart h-75 overflow-hidden overflow-y-scroll">
