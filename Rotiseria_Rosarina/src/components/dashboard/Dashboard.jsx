@@ -6,6 +6,7 @@ import MainLayout from "../layout/MainLayout";
 import Users from "../manageUsers/Users";
 import { AuthenticationContext } from "../../services/authentication/Authentication.context";
 import { Button } from "react-bootstrap";
+import useModal from "../hooks/useModal";
 
 const Dashboard = () => {
   const [foods, setFoods] = useState([]);
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [showUsers, setShowUsers] = useState(false);
   const { user } = useContext(AuthenticationContext);
+  const { isOpen, openModal, closeModal, } = useModal()
 
   useEffect(() => {
     fetch("http://localhost:3001/foods", {
@@ -127,10 +129,6 @@ const Dashboard = () => {
     setShowAddProduct(!showAddProduct);
   }
 
-  const toggleUsers = () => {
-    setShowUsers(!showUsers);
-  }
-
   return (
     <div className="d-grid text-center">
       <MainLayout />
@@ -149,14 +147,14 @@ const Dashboard = () => {
       {user && user.role === "Sysadmin" &&
         <div>
           <Button
-            onClick={toggleUsers}
+            onClick={openModal}
             variant="success"
             style={{ height: "50px", width: "250px" }}>
             Administrar usuarios
           </Button>
         </div>
       }
-      {showUsers && <Users users={users} searchUserHandler={searchUserHandler} toggleUsers={toggleUsers} onUpdateUsers={updateUsersHandler}/>}
+      {isOpen && <Users users={users} searchUserHandler={searchUserHandler} closeModal={closeModal} onUpdateUsers={updateUsersHandler}/>}
       <ProductSearch onSearch={searchHandler} />
       <Products foods={foods} onUpdate={updateProductHandler} />
     </div>

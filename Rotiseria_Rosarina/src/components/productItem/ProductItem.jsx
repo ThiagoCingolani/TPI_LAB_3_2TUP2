@@ -19,14 +19,6 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
     const [productImageUrl, setProductImageUrl] = useState(imageUrl);
     const [productCategory, setProductCategory] = useState(category)
 
-    const handleOpenModal = () => {
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
-
     const handleApplyChanges = async () => {
         const updatedProductData = {
             id,

@@ -6,12 +6,14 @@ import Cart from '../icons/Cart.png';
 import CartList from '../cartList/CartList';
 import { AuthenticationContext } from "../../services/authentication/Authentication.context";
 import { CartContext } from '../../services/cartContext/CartContext';
+import PropTypes from 'prop-types';
+import useModal from "../hooks/useModal";
 
 const Header = () => {
   const { handleLogout, user } = useContext(AuthenticationContext)
   const [showCart, setShowCart] = useState(false);
   const { cartItems, } = useContext(CartContext);
-
+  const { isOpen, openModal, closeModal, } = useModal()
 
   const onHandleClick = () => {
     handleLogout();
@@ -37,7 +39,7 @@ const Header = () => {
         </Nav>
         {user && user.role === "User" &&
           <div>
-            <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
+            <Button variant="warning" style={{ marginRight: '1rem' }} onClick={openModal}>
               <img src={Cart} height={20} alt="Cart" />
               <Badge bg="primary" pill>
                 {cartItems.length}
@@ -47,11 +49,16 @@ const Header = () => {
         }
         <Button variant="dark" onClick={onHandleClick} style={{ marginRight: '1rem' }}>Cerrar sesión</Button>
       </Navbar.Collapse>
-      {showCart &&
-        <CartList toggleCart={toggleCart} />
+      {isOpen &&
+        <CartList openModal={openModal} closeModal={closeModal}/>
       }
     </Navbar>
   );
 };
+
+Header.propTypes = {
+  closeModal: PropTypes.bool,
+};
+
 
 export default Header;

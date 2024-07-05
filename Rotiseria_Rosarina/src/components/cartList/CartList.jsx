@@ -4,7 +4,7 @@ import { Button, Row, Col, FormControl, InputGroup, ListGroup, CloseButton } fro
 import { CartContext } from '../../services/cartContext/CartContext';
 import "./CartList.css"
 
-const CartList = ({ toggleCart }) => {
+const CartList = ({ closeModal }) => {
     const { cartItems, handleIncreaseQuantity, handleDecreaseQuantity, handleDeleteItem, calculateTotalPrice } = useContext(CartContext);
 
 
@@ -32,14 +32,14 @@ const CartList = ({ toggleCart }) => {
                     ))}
                 </ListGroup>
                 <h1>Precio total: ${calculateTotalPrice().toFixed(2)} </h1>
-                <Button variant="secondary" onClick={toggleCart}>Cerrar</Button>
+                <Button variant="secondary" onClick={closeModal}>Cerrar</Button>
             </div>
         </div>
     );
 };
 
 CartList.propTypes = {
-    toggleCart: PropTypes.func,
+    closeModal: PropTypes.bool,
 };
 
 export default CartList;
