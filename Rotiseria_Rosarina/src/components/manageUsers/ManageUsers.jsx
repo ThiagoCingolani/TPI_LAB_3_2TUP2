@@ -5,7 +5,7 @@ import { Button, Card, Modal, Form } from 'react-bootstrap'
 import useModal from '../hooks/useModal';
 
 const ManageUsers = ({ id, username, email, password, role, onUpdateUsers}) => {
-  const {isOpen, openModal, closeModal,} = useModal()
+  const {toggleUpdateProduct, isOpenUpdateProduct} = useModal()
   const [userName, setUserName] = useState(username);
   const [userEmail, setUserEmail] = useState(email);
   const [userRole, setUserRole] = useState(role);
@@ -35,7 +35,7 @@ const ManageUsers = ({ id, username, email, password, role, onUpdateUsers}) => {
         }
 
         onUpdateUsers(updatedUsersData);
-        closeModal();
+        toggleUpdateProduct();
     } catch (error) {
         console.error('Error updating users:', error);
     }
@@ -80,13 +80,13 @@ const ManageUsers = ({ id, username, email, password, role, onUpdateUsers}) => {
         </Card.Body>
         <div className='d-flex justify-content-around mb-2'>
           <Button variant='danger' onClick={() => deleteUsers(id)}>Eliminar usuario</Button>
-          <Button variant='primary' onClick={openModal}>Modificar usuario</Button>
+          <Button variant='primary' onClick={toggleUpdateProduct}>Modificar usuario</Button>
         </div>
 
 
 
         {/*Modal para modificar usuarios*/}
-        <Modal show={isOpen} onHide={closeModal}>
+        <Modal show={isOpenUpdateProduct} onHide={toggleUpdateProduct}>
           <Modal.Header closeButton>
             <Modal.Title>Modificar Usuario</Modal.Title>
           </Modal.Header>
@@ -119,7 +119,7 @@ const ManageUsers = ({ id, username, email, password, role, onUpdateUsers}) => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={closeModal}>
+            <Button variant="secondary" onClick={toggleUpdateProduct}>
               Cerrar
             </Button>
             <Button variant="primary" onClick={() => handleApplyChanges(id)}>

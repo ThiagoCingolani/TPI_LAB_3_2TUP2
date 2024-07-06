@@ -6,17 +6,17 @@ import CreateUser from './CreateUser';
 import useModal from '../hooks/useModal';
 import { Button } from 'react-bootstrap';
 
-const Users = ({ users, searchUserHandler, onUpdateUsers, closeModal }) => {
-  const { isOpen, openModal } = useModal()
+const Users = ({ users, searchUserHandler, onUpdateUsers, toggleUsers }) => {
+  const { isOpenCreateUser, toggleCreateUser } = useModal()
   return (
     <div className="cart-overlay">
       <div className="cart h-75 overflow-hidden overflow-y-scroll">
         <div className='d-flex justify-content-start'>
           <UsersSearch searchUserHandler={searchUserHandler} />
-          <Button className='mt-4' variant='outline-success' style={{ height: "39px", width: "39px" }} onClick={openModal}><strong>+</strong></Button>
+          <Button className='mt-4' variant='outline-success' style={{ height: "39px", width: "39px" }} onClick={toggleCreateUser}><strong>+</strong></Button>
         </div>
-        <Button className='mb-3' variant="secondary" onClick={closeModal}>Cerrar</Button>
-        {isOpen && <CreateUser isOpen={isOpen} closeModal={closeModal} />}
+        <Button className='mb-3' variant="secondary" onClick={toggleUsers}>Cerrar</Button>
+        {isOpenCreateUser && <CreateUser isOpenCreateUser={isOpenCreateUser} toggleCreateUser={toggleCreateUser} />}
         {users.map((user) => {
           return (
             <ManageUsers

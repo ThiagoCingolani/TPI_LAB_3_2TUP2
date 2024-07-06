@@ -3,7 +3,7 @@ import { Alert, Button, Form, FloatingLabel, Card, Modal } from "react-bootstrap
 import PropTypes from 'prop-types'
 import { useState, useRef, useEffect } from 'react';
 
-const CreateUser = ({isOpen, closeModal}) => {
+const CreateUser = ({isOpenCreateUser, toggleCreateUser}) => {
   const [createUsername, setCreateUsername] = useState('');
   const [createEmail, setCreateEmail] = useState('');
   const [createPassword, setCreatePassword] = useState('');
@@ -119,7 +119,7 @@ const CreateUser = ({isOpen, closeModal}) => {
   return (
     <div className="cart-overlay overflow-auto">
       <div className="cart">
-          <Modal className='d-flex justify-content-center align-items-center vh-100' show={isOpen} onHide={closeModal}>
+          <Modal className='d-flex justify-content-center align-items-center vh-100' show={isOpenCreateUser} onHide={toggleCreateUser}>
             <Modal.Body style={{width: "480px", height: "480px"}}>
               <Form className="text-center">
                 <h1>Crear un usuario</h1>
@@ -174,7 +174,7 @@ const CreateUser = ({isOpen, closeModal}) => {
                 <Button variant="outline-success" type="submit" className='mt-3' onClick={handleCreate}>
                   Crear usuario
                 </Button>
-                <Button variant="secondary" className='mt-3' onClick={closeModal}>Cerrar</Button>
+                <Button variant="secondary" className='mt-3' onClick={toggleCreateUser}>Cerrar</Button>
               </Form>
               {(errors.email || errors.password || errors.username) && (
                 <div className="mt-3 mb-3">
@@ -186,6 +186,11 @@ const CreateUser = ({isOpen, closeModal}) => {
       </div>
     </div>
   )
+}
+
+CreateUser.propTypes = {
+  isOpenCreateUser: PropTypes.bool,
+  toggleCreateUser: PropTypes.func,
 }
 
 export default CreateUser

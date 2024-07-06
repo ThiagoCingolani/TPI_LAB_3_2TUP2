@@ -11,17 +11,13 @@ import useModal from "../hooks/useModal";
 
 const Header = () => {
   const { handleLogout, user } = useContext(AuthenticationContext)
-  const [showCart, setShowCart] = useState(false);
   const { cartItems, } = useContext(CartContext);
-  const { isOpen, openModal, closeModal, } = useModal()
+  const { isOpenCart, toggleCart } = useModal()
 
   const onHandleClick = () => {
     handleLogout();
   };
 
-  const toggleCart = () => {
-    setShowCart(!showCart);
-  };
 
   return (
     <Navbar id="navbar" expand="lg" fixed='top'>
@@ -39,7 +35,7 @@ const Header = () => {
         </Nav>
         {user && user.role === "User" &&
           <div>
-            <Button variant="warning" style={{ marginRight: '1rem' }} onClick={openModal}>
+            <Button variant="warning" style={{ marginRight: '1rem' }} onClick={toggleCart}>
               <img src={Cart} height={20} alt="Cart" />
               <Badge bg="primary" pill>
                 {cartItems.length}
@@ -49,16 +45,11 @@ const Header = () => {
         }
         <Button variant="dark" onClick={onHandleClick} style={{ marginRight: '1rem' }}>Cerrar sesión</Button>
       </Navbar.Collapse>
-      {isOpen &&
-        <CartList openModal={openModal} closeModal={closeModal}/>
+      {isOpenCart &&
+        <CartList toggleCart={toggleCart}/>
       }
     </Navbar>
   );
 };
-
-Header.propTypes = {
-  closeModal: PropTypes.bool,
-};
-
 
 export default Header;
