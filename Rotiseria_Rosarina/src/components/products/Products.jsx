@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ProductItem from '../productItem/ProductItem'
 import "./Products.css"
 
-const Products = ({ foods }) => {
+const Products = ({ foods, onUpdate }) => {
 
   return (
     <div className='cardsContainer'>
@@ -26,6 +26,7 @@ const Products = ({ foods }) => {
             category={food.category}
             ingredients={formattedIngredients}
             imageUrl={food.imageUrl}
+            onUpdate={onUpdate}
           />
         );
       })}
@@ -35,6 +36,7 @@ const Products = ({ foods }) => {
 
 Products.propTypes = {
   foods: PropTypes.array,
+  onUpdate: PropTypes.func,
 };
 
 export default Products
