@@ -13,10 +13,8 @@ const Dashboard = () => {
   const [originalFoods, setOriginalFoods] = useState([]);
   const [users, setUsers] = useState([]);
   const [originalUsers, setOriginalUsers] = useState([]);
-  const [showAddProduct, setShowAddProduct] = useState(false);
-  const [showUsers, setShowUsers] = useState(false);
   const { user } = useContext(AuthenticationContext);
-  const { isOpen, openModal, closeModal, } = useModal()
+  const { isOpenUsers, toggleUsers, isOpenAddProduct, toggleAddProduct } = useModal()
 
   useEffect(() => {
     fetch("http://localhost:3001/foods", {
@@ -125,10 +123,6 @@ const Dashboard = () => {
     }
   };
 
-  const toggleAddProduct = () => {
-    setShowAddProduct(!showAddProduct);
-  }
-
   return (
     <div className="d-grid text-center">
       <MainLayout />
@@ -141,20 +135,20 @@ const Dashboard = () => {
             Agregar Producto
           </Button>
         </div>}
-      {showAddProduct &&
+      {isOpenAddProduct &&
         <AddProducts toggleAddProduct={toggleAddProduct} foods={foods} onProductDataSaved={saveProductDataHandler} />
       }
       {user && user.role === "Sysadmin" &&
         <div>
           <Button
-            onClick={openModal}
+            onClick={toggleUsers}
             variant="success"
             style={{ height: "50px", width: "250px" }}>
             Administrar usuarios
           </Button>
         </div>
       }
-      {isOpen && <Users users={users} searchUserHandler={searchUserHandler} closeModal={closeModal} onUpdateUsers={updateUsersHandler}/>}
+      {isOpenUsers && <Users users={users} searchUserHandler={searchUserHandler} toggleUsers={toggleUsers} onUpdateUsers={updateUsersHandler}/>}
       <ProductSearch onSearch={searchHandler} />
       <Products foods={foods} onUpdate={updateProductHandler} />
     </div>

@@ -9,7 +9,7 @@ import { CartContext } from '../../services/cartContext/CartContext';
 import { AuthenticationContext } from '../../services/authentication/Authentication.context';
 
 const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdate }) => {
-    const {isOpen,openModal,closeModal,} = useModal()
+    const { isOpenUpdateProduct, toggleUpdateProduct } = useModal()
     const { addToCart } = useContext(CartContext);
     const { user } = useContext(AuthenticationContext)
     const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
             }
 
             onUpdate(updatedProductData);
-            setShowModal(false);
+            toggleUpdateProduct();
         } catch (error) {
             console.error('Error updating product:', error);
         }
@@ -98,7 +98,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
                                         <Button variant='danger' className='mr-1 rounded-pill' onClick={() => deleteProduct(id)}>
                                             Eliminar
                                         </Button>
-                                        <Button variant='primary' className='mr-1 rounded-pill' onClick={openModal}>
+                                        <Button variant='primary' className='mr-1 rounded-pill' onClick={toggleUpdateProduct}>
                                             Modificar
                                         </Button>
                                     </div>
@@ -112,7 +112,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
 
 
             {/* Modal para modificar producto */}
-            <Modal show={isOpen} onHide={closeModal}>
+            <Modal show={isOpenUpdateProduct} onHide={toggleUpdateProduct}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modificar Producto</Modal.Title>
                 </Modal.Header>
@@ -161,7 +161,7 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={closeModal}>
+                    <Button variant="secondary" onClick={toggleUpdateProduct}>
                         Cerrar
                     </Button>
                     <Button variant="primary" onClick={handleApplyChanges}>
