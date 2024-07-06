@@ -12,7 +12,6 @@ const ProductItem = ({ id, name, price, ingredients, imageUrl, category, onUpdat
     const { isOpenUpdateProduct, toggleUpdateProduct } = useModal()
     const { addToCart } = useContext(CartContext);
     const { user } = useContext(AuthenticationContext)
-    const [showModal, setShowModal] = useState(false);
     const [productName, setProductName] = useState(name);
     const [productPrice, setProductPrice] = useState(price);
     const [productIngredients, setProductIngredients] = useState(ingredients);

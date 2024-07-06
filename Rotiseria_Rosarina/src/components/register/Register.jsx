@@ -42,7 +42,7 @@ const Register = () => {
       const newId = users.length + 1;
 
       const newUser = {
-        id: newId,
+        id: String(newId),
         username,
         email,
         password,

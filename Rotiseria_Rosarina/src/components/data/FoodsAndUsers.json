@@ -729,13 +729,6 @@
       "email": "user@gmail.com",
       "password": "user",
       "role": "User"
-    },
-    {
-      "id": "5",
-      "username": "No Soy User XDXDXXD",
-      "email": "nosoyuserxd@gmail.com",
-      "password": "nosoyuser",
-      "role": "Admin"
     }
   ]
 }

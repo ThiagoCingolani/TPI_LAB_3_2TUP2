@@ -1,12 +1,11 @@
-import { useContext, useState } from 'react';
-import { Button, Nav, NavDropdown, Navbar, Badge } from "react-bootstrap"
+import { useContext } from 'react';
+import { Button, Nav, Navbar, Badge } from "react-bootstrap"
 import "./NavBar.css"
 import "../productItem/ProductItem.css"
 import Cart from '../icons/Cart.png';
 import CartList from '../cartList/CartList';
 import { AuthenticationContext } from "../../services/authentication/Authentication.context";
 import { CartContext } from '../../services/cartContext/CartContext';
-import PropTypes from 'prop-types';
 import useModal from "../hooks/useModal";
 
 const Header = () => {
@@ -25,13 +24,6 @@ const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          {user && <div>
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Pizzas</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Carlitos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Empanadas</NavDropdown.Item>
-            </NavDropdown>
-          </div>}
         </Nav>
         {user && user.role === "User" &&
           <div>
